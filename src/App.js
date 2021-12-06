@@ -1,21 +1,23 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Auth from "views/Auth";
-import Home from "views/Home";
-import Login from 'views/Login';
-import Signup from "views/Signup";
-import AuthContextProvider from 'contexts/AuthContext'
+import Landing from "views/Landing";
+import ContentFeed from "views/ContentFeed";
+import Login from "components/Login";
+import Signup from "components/Signup";
+import AuthContextProvider from "contexts/AuthContext";
+import CitySelector from "components/CitySelector";
+import Dashboard from "views/Dashboard";
 
 function App() {
   return (
     <Router>
       <AuthContextProvider>
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />}/>
-        <Route path="/signup" element={<Signup />}/>
-
-        <Route path="/" element={<Auth />} />
-      </Routes>
+        <Routes>
+          <Route path="/home" element={<ContentFeed />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Landing />} />
+        </Routes>
       </AuthContextProvider>
     </Router>
   );

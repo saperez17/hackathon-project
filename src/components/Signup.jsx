@@ -4,6 +4,8 @@ import theme from "theme";
 import { BsArrowLeftSquare } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import useAuthContext from "hooks/useAuthContext";
+import { LANDING_SECTIONS } from "views/Landing";
+
 
 const { Option } = Select;
 
@@ -16,7 +18,7 @@ const cities = [
   "Villavicencio",
 ];
 
-const Signup = () => {
+const Signup = ({ changeSection }) => {
   const [form] = Form.useForm();
   const [state] = useAuthContext();
 
@@ -52,7 +54,6 @@ const Signup = () => {
         overflow: "hidden",
         position: "fixed",
         overscrollBehavior: "contain",
-        // width: window.innerWidth,
       }}
     >
       <Col
@@ -65,13 +66,12 @@ const Signup = () => {
         }}
       >
         <div
-          onClick={() => console.log("clicked")}
+          onClick={() => changeSection(LANDING_SECTIONS.MAIN)}
           style={{
             margin: "15px 0 0 15px",
             width: "fit-content",
           }}
         >
-          <Link to="/">
             <BsArrowLeftSquare
               style={{
                 position: "absolute",
@@ -79,7 +79,6 @@ const Signup = () => {
                 fontSize: "2.5rem",
               }}
             />
-          </Link>
         </div>
       </Col>
       <Col
@@ -163,7 +162,7 @@ const Signup = () => {
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
-              Login
+              Signup
             </Button>
           </Form.Item>
         </Form>

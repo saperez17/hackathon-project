@@ -2,13 +2,14 @@ import { Col, Row, Input, Button, Form } from "antd";
 import React from "react";
 import theme from "theme";
 import { BsArrowLeftSquare } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { LANDING_SECTIONS } from "views/Landing";
 
-const Login = () => {
+const Login = ({ changeSection }) => {
   const navigate = useNavigate();
 
   const formSubmit = () => {
-      console.log('here')
+    console.log("here");
     navigate("/home");
   };
   return (
@@ -32,21 +33,19 @@ const Login = () => {
         }}
       >
         <div
-          onClick={() => console.log("clicked")}
+          onClick={() => changeSection(LANDING_SECTIONS.MAIN)}
           style={{
             margin: "15px 0 0 15px",
             width: "fit-content",
           }}
         >
-          <Link to="/">
-            <BsArrowLeftSquare
-              style={{
-                position: "absolute",
-                color: "white",
-                fontSize: "2.5rem",
-              }}
-            />
-          </Link>
+          <BsArrowLeftSquare
+            style={{
+              position: "absolute",
+              color: "white",
+              fontSize: "2.5rem",
+            }}
+          />
         </div>
       </Col>
       <Col

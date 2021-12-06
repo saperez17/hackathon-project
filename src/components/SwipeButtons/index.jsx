@@ -5,16 +5,16 @@ import StarRateIcon from "@material-ui/icons/StarRate";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 
-const SwipeButtons = () => {
+const SwipeButtons = ({ swipe }) => {
   return (
     <div className="swipeButtons">
-      <IconButton className="swipeButtons__left">
+      <IconButton className="swipeButtons__left" onClick={() => swipe('left')}>
         <CloseIcon fontSize="large" />
       </IconButton>
       <IconButton className="swipeButtons__star">
         <StarRateIcon fontSize="large" />
       </IconButton>
-      <IconButton className="swipeButtons__right">
+      <IconButton className="swipeButtons__right" onClick={() => swipe('right')}>
         <FavoriteIcon fontSize="large" />
       </IconButton>
     </div>

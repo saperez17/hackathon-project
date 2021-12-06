@@ -11,3 +11,7 @@ body {
 .ant-form-item-required {
     color: aliceblue !important;
 }
+
+.swipe {
+    position: absolute;
+  }
